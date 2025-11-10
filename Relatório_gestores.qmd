@@ -1,0 +1,409 @@
+---
+title: "Relatório de avaliação do Projeto Primeiro Emprego"
+author: Fernando Antonio de Melo Pereira Lhamas
+format: docx
+---
+
+## Avaliação dos gestores
+
+### Sumário executivo
+
+Esta análise avalia os resultados do primeiro ano do Projeto Primeiro Emprego (PPE), com base na percepção dos gestores, que atuam como pontos focais, recebendo os beneficiários e acompanhando ao longo da trajetória laboral. Esta política pública do Governo do Estado da Bahia revela uma alta relevância percebida pelos gestores, combinada a uma significativa efetividade social. Há desafios e inconformidades que são apontados pelos gestores. Tais pontos subsidiam a tomada de decisão em busca da sustentabilidade do PPE a longo prazo. 
+
+A seguir, tem-se os principais pontos fortes e fracos identificados a partir do olhar dos gestores. Comparando os pontos elencados, podemos inferir que no momento inicial, o acolhimento aos jovens beneficiários ẽ bem sucedido. Também é possível perceber que os gestores compreendem a importância da política. No entanto, há inconformidades de comunicação, sobrecarga na atividade de supervisão e problemas raros de desvio de finalidade, provocado pela infra-estrutura precária de pessoal nas unidades que recebem os jovens. 
+
+| ✅ Pontos Fortes (Efetividade Social) | ⚠️ Pontos de Atenção (Riscos à Qualidade) |
+| :--- | :--- |
+| **Alta Relevância Percebida:** 51 de 66 gestores se sentem parceiros e consideram o projeto "Muito Relevante". | **Sobrecarga do Ponto Focal:** 70% consideram o papel "desafiador", citando "falta de tempo" para supervisão diária. |
+| **Excelente Integração Social:** Os gestores avaliam que os beneficiários demonstram ótima adaptação: 89% têm boa relação com as equipes e 78% adaptam-se bem ao serviço público. | **Falhas de Comunicação (FESF):** A comunicação com a entidade parceira é mediana (32% de avaliações negativas) e gera desalinhamento sobre a duração dos contratos dos jovens. |
+| **Sucesso no Acolhimento:** O processo de recepção inicial dos jovens nas unidades é avaliado como "Muito Satisfatório" pela maioria. | **Risco de Desvio de Finalidade:** Uma "inconformidade" crítica (Gráfico 14) aponta que jovens são, em alguns casos, os "únicos profissionais" da unidade, sugerindo substituição de mão de obra. |
+
+De forma geral, o PPE demonstra estabilidade e alto potencial de gerar impacto social. Na visão dos gestores, o PPE tem conseguindo integrar jovens de forma eficaz. Contudo, há falhas de comunicação que devem ser tratadas, além do dimensionamento de carga horária para os gestores. Para garantir a efetividade continuada, a aproximação da FESF com os pontos focais deve ser priorizada, sob forma de atendimento eficaz, resolução de problemas e oferta de treinamento.Os casos isolados que refletem problemas graves, como o desvio de finalidade, devem ser tratados com urgência.
+
+### Bloco I: Percepção Geral do Projeto e o Papel do Gestor
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(tidyplots)
+library(tidytext)
+library(ggwordcloud)
+library(stopwords)
+
+#Importação
+df <- read_csv("/home/nando/Documentos/Projeto_Primeiro_Emprego/PPE_gestores.csv", show_col_types = FALSE)
+#Remoção da coluna 1 (dados de registro)
+df2 <- df[,2:21]
+nomes <- paste0("q", 1:20)
+df2 <- df2 |> rename_with(~ nomes)
+
+# Definição de estilo dos gráficos
+estilo <- function(x) x |>
+  adjust_size(width = 100, height = 60, unit="mm") |>
+  add_count_value(fontsize = 12, color = "black")|>
+  adjust_font(family = "mono", fontsize = 12)|>
+  adjust_y_axis_title(fontsize = 12) |>
+  adjust_legend_title(fontsize = 12) |>
+  adjust_x_axis_title(fontsize = 12) |>
+  adjust_padding(all = 0.15)
+# Opções globais
+tidyplots_options(my_style = estilo)
+
+# Renomeando as variáveis
+df2 <- df[,2:21]
+nomes <- paste0("q", 1:20)
+df2 <- df2 |>
+  rename_with(~ nomes)
+```
+
+A avaliação com os gestores inicia com uma questão global, sobre a relevância do PPE para os gestores. Os resultados constam no Gráfico 1.
+
+### Gráfico 1: Relevância do PPE para os gestores
+
+```{r}
+#| label: "q1:Relevãncia do PPE"
+#| echo: false
+#| warning: FALSE
+#| message: FALSE
+#| fig_alt: "Relevância do PPE para os gestores"
+#| fig-cap: "Fonte: Dados da pesquisa, 2025."
+#| fig-align: center
+#| out-width: "100%" 
+source("q1.R", local = knitr::knit_global())
+g1
+```
+
+O Gráfico 1 é uma questão global que destaca a relevância do PPE para os gestores. A distribuição mostra um pico no ponto máximo da escala, denotando ser muito relevantes para os gestores. Esta é uma validação da política por uma parte interessada fundamental para o sucesso do PPE. Em seguida, foiq uestionado sobre as principais atribuições dos pontos focais. A questão contou com categorias pré-determinadas, mas abriu espaço para captar outras atribuições, conforme é mostrado na Tabela 01.
+
+### Tabela 01: Principais atribuições como ponto focal
+
+```{r}
+#| label: "q2: Qual sua principal atribuição como ponto focal?"
+#| echo: false
+#| warning: FALSE
+#| message: FALSE
+#| fig_alt: "Atribuições como ponto focal"
+#| fig-cap: "Fonte: Dados da pesquisa, 2025."
+#| fig-align: center
+#| out-width: "100%" 
+source("q2.R", local = knitr::knit_global())
+g2
+```
+
+A Tabela 01 destaca com 36,4% a atribuição de orientação e supervisão direta do beneficiário, seguida de acompanhamento do desempenho e frequência. Esses resultados indicam que há um bom alinhamento no perfil prático que o ponto focal deve ter para o sucesso da política. Em um resultado posterior (Tabela 03), fica clara a necessidade do contato diário e da dedicação contínua, sendo coerentes com as atividades destacadas como principal atribuição. As contribuições individuais também revelam atribuições de acompanhamento. 
+Em seguida, foi questionado o quanto o papel de ponto focal é desafiador. Os resultados estão apresentados no Gráfico 02.
+
+### Gráfico 02: Nível geral de desafio como ponto focal
+
+```{r}
+#| label: q3-atribuicao-ponto-focal
+#| echo: false
+#| warning: FALSE
+#| message: FALSE
+#| fig_alt: "Nível de desafio como ponto focal"
+#| fig-cap: "Fonte: Dados da pesquisa, 2025."
+#| fig-align: center
+#| out-width: "100%" 
+source("q3.R", local = knitr::knit_global())
+g3
+```
+
+Os resultados demonstram uma distribuição de frequência concentrada nos pontos altos da escala (4 e 5), indicando que ser ponto focal é desafiador. Ou seja, os gestores compreendem que o papel é relevante e desafiador. Ao longo desta análise, a alta demanda de tempo, por conta da supervisão direta e a natureza do desafio de lidar com jovens em uma primeira experiência profissional, explicam essa percepção. 
+Buscando especificar os desafios, foi questionado quais são os principais desafios enfrentados pelos pontos focais. Os resultados foram sumarizados em uma nuvem de palavras, exemplificadas posteriormente nas sentenças completas dos respondentes. 
+
+### Gráfico 03: Principais desafios enfrentados pelos pontos focais
+### Sentenças que exemplificam os principais desafios.
+
+```{r}
+#| label: q4-principais desafios
+#| echo: false
+#| warning: FALSE
+#| message: FALSE
+#| fig_alt: "Principais desafios como ponto focal"
+#| fig-cap: "Fonte: Dados da pesquisa, 2025."
+#| fig-align: center
+#| out-width: "100%" 
+source("q4.R", local = knitr::knit_global())
+g4
+knitr::kable(tabela_contexto, format = "simple")
+```
+
+No Gráfico 03, as palavras com maior tamanho da fonte indicam maior frequência. As palavras "falta", "tempo", "comunicação", "lidar" e "jovens" estão entre as mais frequentes e revelam os principais desafios, como falta de tempo para acompanhar os jovens, a comunicação falha entre ponto focal e beneficiário, além de revelar um grau de deconhecimento sobre a proposta do PPE. 
+As sentenças trazem o contexto necessário para inferenciar desafios de três ordes: a falta de tempo dos gestores para se dedicar ao PPE conforme o nível de serviço esperado, o tratamento do ponto focal com os jovens, gerando conflitos diversos no ambiente laboral e, a comunicação falha entre as unidades dos pontos focais e a instituição parceira. Há uma percepção, ainda que em baixa frequência, de desamparo. 
+Por outro lado, os gestores foram convidados a indicar as principais facilidades que encontram como ponto focal. Os resultados estão no Gráfico 04.
+
+### Gráfico 04: Principais facilidades encontradas pelos pontos focais
+### Sentenças que exemplificam as principais facilidades
+
+```{r}
+#| label: q5-principais facilidades
+#| echo: false
+#| warning: FALSE
+#| message: FALSE
+#| fig_alt: "Principais facilidades como ponto focal"
+#| fig-cap: "Fonte: Dados da pesquisa, 2025."
+#| fig-align: center
+#| out-width: "100%" 
+source("q5.R", local = knitr::knit_global())
+g5
+knitr::kable(tabela_contexto2, format = "simple")
+```
+
+As palavras mais frequentes, como "comunicação", "acolhimento", "trabalho", "orientação", "desenvolvimento" e "jovens" revelam há pontos positivos nas trocas entre ospontos focais e beneficiários. Estes resultados se alinham a proposta da política, que ao invés de buscar resultados focados em desempenho, busca a formação profissional humanista, construida com diálogo e acolhimento. As sentenças exemplificam exatamente a orientação, acolhimento e empatia, além da troca de experiencias, comunicação/dialogo constante, a ajuda na inserção dos beneficiários e a vivência da evolução do jovem.
+Os gestores indicam, a partir desses resultados, que valorizam a comunicação com o jovem, que praticam a orientação e que sentem um grau elevado de satisfação com a evolução profissional do jovem mentorado. 
+É possível inferenciar que os desafios encontrados residem nos processos, na estrutura operacional da política e nas atividades de gestão, enquanto as facilidades residem no propósito da política. 
+
+### Bloco II: Acolhimento e Articulação
+
+Neste bloco, as questões são focadas em elementos que potencializam os resultados do PPE, o acolhimento e a articulação. Iniciando pelo acolhimento, o Gráfico 05 mostra uma avaliação global do processo de acolhimento dos jovens. 
+
+### Gráfico 05: Avaliação do processo de acolhimento dos beneficiários
+
+```{r}
+#| label: q6-Processo de acolhimento
+#| echo: false
+#| warning: FALSE
+#| message: FALSE
+#| fig_alt: "Avaliação do processo de acolhimento"
+#| fig-cap: "Fonte: Dados da pesquisa, 2025."
+#| fig-align: center
+#| out-width: "100%" 
+source("q6.R", local = knitr::knit_global())
+g6
+```
+
+Os resultados demonstram que há forte viés positivo, indicando alta satisfação. É importante enaltecer que o acolhimento é um dos maiores elementos de sucesso do projeto. A recepção e integração do jovem no início da parceria funcionam plenamente. 
+Alguns elementos processuais poderiam justificar o sucesso do acolhimento. Por isto, foi questionado se há a presença de protocolos ou diretrizes para o processo de acolhimento. Os resultados constam no Gráfico 06. 
+
+### Gráfico 06: Presença de protocolos ou diretrizes para acolhimento
+### Gráfico 07: Relação entre grau de acolhimento e presença de protocolos
+
+
+```{r}
+#| label: q7-Presença de protocolos
+#| echo: false
+#| warning: FALSE
+#| message: FALSE
+#| fig_alt: "Presença de protocolos ou diretrizes para acolhimento"
+#| fig-cap: "Fonte: Dados da pesquisa, 2025."
+#| fig-align: center
+#| out-width: "100%" 
+source("q7.R", local = knitr::knit_global())
+g7
+contig1
+```
+
+Os resultados mostram que 42 gestores de 66 tem um protocolo de acolhimento. Apesar de não ser o único preditor de um bom acolhimento, denota-se um grau relevante de conformidade na forma de acolhimento. Este resultado demonstra maturidade do PPE ao proporcionar experiências de intervenção similares entre os beneficiários. 
+O Gráfico 07 compara a presença de protocolos com a avaliação geral do acolhimento. Os resultados indicam que mesmo sem o protocolo, ainda há uma avaliação positiva do prcesso de acolhimento, com alta mediana. 
+Estes resultados permite inferenciar que há uma cultura de acolhimento entre os pontos focais, e em uma parte considerável das observações, sem registro formal. Para fins de validação da política, é importante buscar a formalização das boas práticas informais, mas sem impor um protocolo de cima para baixo. 
+Estendendo a compreensão do acolhimento, o Gráfico 08 mostra as respostas que vinculam o o acolhimento com a integração dos jovens no ambiente de trabalho. 
+
+### Gráfico 8: Grau de contribuição do acolhimento para integração dos jovens
+### Gráfico 9: Relação entre grau de acolhimento e contribuição do acolhimento
+
+```{r}
+#| label: q8-Contribuição do acolhimento
+#| echo: false
+#| warning: FALSE
+#| message: FALSE
+#| fig_alt: "Contribuição do acolhimento para integração dos jovens"
+#| fig-cap: "**Fonte:** Dados da pesquisa, 2025. **Legenda:** CA = Contribui em alguma medida; CS = Contribui significativamente; EF = É fundamental"
+#| fig-align: center
+#| out-width: "100%" 
+source("q8.R", local = knitr::knit_global())
+g8
+contig2
+```
+
+A maioria (40) vê o acolhimento como "É fundamental" (EF) e 20 como "Contribui significativamente" (CS). O Gráfico 09 mostra uma correlação: quanto maior a nota do acolhimento, maior a percepção de sua importância. Estes resultados indicam que o acolhimento tende a influenciar a integração dos jovens, que por sua vez, tem como consequência os resultados obtidos no Bloco IV desta análise. Como medida de integração, também foi questionado para os gestores qual o tipo de inserção do jovem na cultura organizacional. Os resultados são mostrados no Gráfico 10. 
+
+### Gráfico 10: Tipo de inserção do jovem na cultura organizacional
+### Sentenças que exemplificam outras formas de inserção do jovem
+
+```{r}
+#| label: q9-Tipos de inserção do jovem na cultura organizacional
+#| echo: false
+#| warning: FALSE
+#| message: FALSE
+#| fig_alt: "Tipo de inserção do jovem na cultura organizacional"
+#| fig-cap: "**Fonte:** Dados da pesquisa, 2025. **Legenda:** AE = Apresentação formal à equipe; AP = Acompanhamento por um profissional/colega ou servidor mais experiente; PE = Participação em eventos; AM = Acesso a materiais institucionais; NA = Outras formas"
+#| fig-align: center
+#| out-width: "100%" 
+source("q9.R", local = knitr::knit_global())
+g9
+knitr::kable(tabela_contexto3, format = "simple")
+```
+
+Como se trata de uma questão fechada, as alternativas marcadas com maior frequência foram o acompanhamento por um profissional/colega ou servidor mais experiente (37), seguida de apresentação formal à equipe (10). Outras categorias como acesso a materiais institucionais ou participação em eventos não foram marcados pelos respondentes. A partir da opção "Outros", oos 19 respondentes restantes indicaram em maioria que todas as alternativas são praticadas. 
+Estes resultados indicam comprometimento dos gestores com a inserção do jovem na cultura organizacional. No entanto, revela disparidades na forma como a inserção é feita. É necessário equilibrar a autonomia das unidades com um grau maior de conformidade na inserção cultural. 
+
+### Bloco III: Comunicação e Acompanhamento
+
+No Bloco III, os gestores responderam sobre a comunicação entre eles e os beneficiários, e também entre os gestores e a instituição parceira. As indagações iniciaram com uma pergunta global, sobre a qualidade da comunicação, quanto a clareza e frequência com a instituição parceira. Os resultados são demonstrados no Gráfico 11. 
+
+### Gráfico 11: Qualidade da comunicação com a FLEM ou FESF
+
+```{r}
+#| label: q10-Qualidade da comunicação
+#| echo: false
+#| warning: FALSE
+#| message: FALSE
+#| fig_alt: "Qualidade da comunicação quanto a clareza e frequência com a FLEM ou FESF"
+#| fig-cap: "**Fonte:** Dados da pesquisa, 2025."
+#| fig-align: center
+#| out-width: "100%" 
+source("q10.R", local = knitr::knit_global())
+g10
+```
+
+Foi encontrada uma distribuição quase normal, centrada em "4" (27), mas com uma cauda longa à esquerda (21 respondentes, ou 32%, avaliaram como 1, 2 ou 3). Este é um elemento que destoa dos resultados positivos encontrados. Para um terço dos gestores, a comunicação é insatisfatória. Estes resultados se conectam diretamente com os desafios relatados previamente. Buscando aprofundar os canais de comunicação, e dependendo do canal, se a qualidade foi classificada como alta. Os resultados são apresentados na Tabela 02 e o Gráfico 12.
+
+### Tabela 02: Canais de comunicação com a entidade parceira
+### Gráfico 12: Qualidade da comunicação por canal
+
+```{r}
+#| label: q11-Canais de comunicação com entidade parceira
+#| echo: false
+#| warning: FALSE
+#| message: FALSE
+#| fig_alt: "Canais de comunicação com a entidade parceira"
+#| fig-cap: "**Fonte:** Dados da pesquisa, 2025."
+#| fig-align: center
+#| out-width: "100%" 
+source("q11.R", local = knitr::knit_global())
+g11
+contig3
+```
+
+Os resultados mostram que o Whatsapp é o canal de comunicação majoritariamente utilizado, com 59%, seguido do e-mail (35%). Os resultados do gráfico de violino demonstram que a comunicação por Whatsapp fizeram os gestores avaliarem com a maior mediana a qualidade de comunicação (med = 4.2). No entanto, os dados para este grupo são bem dispersos. Aqueles que marcaram e-mail tem uma distribuição mais estável, centrado em um valor mais baixo (Med = 3.8). Estes resultados indicam que há baixa oferta de canais de comunicação e está comunicação é centrada no Whatsapp. A alta dispersão nas avaliações de qualidade para o grupo do Whatsapp revela que a qualidade da comunicação não está se apoiando em processos estruturados, mas sendo construído laços pessoais. Isto representa um risco para a gestão, pois no relacionamento com parceiros de projeto, deve-se buscar isonomia na experiência de comunicação. 
+Partindo para a comunicaçãoNa dos gestores com os jovens, a Tabela a seguir mostra os resultados da periodicidade da comunicação com os beneficiários. 
+
+### Tabela 03: Periodicidade de comunicação com os beneficiários
+
+```{r}
+#| label: q12-Periodicidade da comunicação com beneficiários
+#| echo: false
+#| warning: FALSE
+#| message: FALSE
+#| fig_alt: "Periodicidade de comunicação com os beneficiários"
+#| fig-cap: "**Fonte:** Dados da pesquisa, 2025."
+#| fig-align: center
+#| out-width: "100%" 
+source("q12.R", local = knitr::knit_global())
+g12
+```
+
+Os resultados demonstram ser positivos, pois mais de 70% dos gestores indicam que a comunicação ocorre semanalmente. E observando apenas a categoria diariamente, a maioria dos respondentes indicou esta alternativa (61%). Estes resultados são consistentes com respostas anteriores sobre a importância do PPE, acolhimento e facilidades, na perspectiva dos gestores. 
+Se voltando para o acompanhamento dos beneficários, foi questionado o quão desafiador é obter informações de desempenho e de permanência dos beneficiários. Os resultados constam no Gráfico 13. 
+
+### Gráfico 13: Obter informações de desempenho e permanência dos beneficiários
+
+```{r}
+#| label: q13- Obter informações de desempenho e permanência dos beneficiários
+#| echo: false
+#| warning: FALSE
+#| message: FALSE
+#| fig_alt: "Quão desafiador é obter informações de desempenho e permanência dos beneficiários"
+#| fig-cap: "**Fonte:** Dados da pesquisa, 2025."
+#| fig-align: center
+#| out-width: "100%" 
+source("q13.R", local = knitr::knit_global())
+g13
+```
+
+Os resultados mostram uma distribuição próxima da normal, centrada no ponto 3 da escala de 1 a 5. Este resultado indica que é moderamente desafiador obter tais informações. É possível inferenciar que os gestores desconhecem ou não utilizam ferramentas formais de avaliação. O desafio para saber da permanência do jovem no PPE é um sintoma de que há um problema estrutural no PPE ou há falha grave de comunicação. 
+De forma geral, a comunicação dos gestores com os jovens funciona com frequência diária, mas entre os gestores e a instituição parceira, há ruídos de comunicação que devem ser sanados. 
+
+### Bloco IV: Atitudes e Percepções (adição metodológica)
+
+No Bloco 4, uma série de afirmações sobre os beneficiários foram expostas, para que o gestor avaliasse o grau de concordância. A redação das afirmações segue: 
+
+- "Os beneficiários/trabalhadores educandos do PPE são, em geral, proativos em suas atividades",
+- "A imaturidade dos beneficiários/trabalhadores educandos é um desafio para o acompanhamento pelo ponto focal",
+- "A maioria dos beneficiários/trabalhadores educandos do PPE tem clareza sobre seus objetivos profissionais",
+- "Os jovens beneficiários/trabalhadores educandos do PPE se adaptam bem à cultura do serviço público",
+- "Os beneficiários/trabalhadores educandos tem boa relação com os demais trabalhadores"
+
+A Tabela 04 mostra a frequência relativa dessas variáveis.
+
+### Tabela 04: Frequência de atitudes e percepções
+
+```{r}
+#| label: q14- Frequência de atitudes e percepções
+#| echo: false
+#| warning: FALSE
+#| message: FALSE
+#| fig_alt: "Atitudes e percepções"
+#| fig-cap: "**Fonte:** Dados da pesquisa, 2025."
+#| fig-align: center
+#| out-width: "100%" 
+source("q14.R", local = knitr::knit_global())
+g14
+```
+
+Nestes pontos, os gestores avaliam bem os jovens e indicam outro elemento de sucesso do PPE, pois promove integração social, cultural e de desempenho. A clareza de objetivos e a imaturidade como desafio já eram esperadas em jovens na primeira experiência profissional. Nos elementos centrais, o PPE é bem sucedido. 
+
+### BLOCO V: Sugestões e inconformidades
+
+O Bloco V fez perguntas livres sobre aprimoramento do PPE, solicitando pontos de melhoria. Da mesma forma, solicitou identificação de inconformidades. As respostas foram sumarizadas em nuvens de palavras e em posteriores sentenças que exemplificam os pedidos. As nuvens de melhorias e inconformidades são apresentadas respectivamente nos Gráficos 14 e 15. 
+
+### Gráfico 14: Sugestões para aprimorar o PPE
+### Sentenças que exemplificam as melhorias sugeridas
+
+```{r}
+#| label: q19- Sugestões para aprimorar o PPE
+#| echo: false
+#| warning: FALSE
+#| message: FALSE
+#| fig_alt: "Sugestões para aprimorar o PPE"
+#| fig-cap: "**Fonte:** Dados da pesquisa, 2025."
+#| fig-align: center
+#| out-width: "100%" 
+source("q19.R", local = knitr::knit_global())
+g19
+knitr::kable(tabela_contexto4, format = "simple")
+```
+
+As palavras-chave "comunicação", "ponto focal", "acolhimento" e "programa" se destacaram em frequência. As sentenças trazem o contexto e sugerem que haja mais articulação do projeto com o serviço. Solicita-se mais canais de comunicação, inclusive para feedback, além de ações  de interação que aproxime os gestores com a instituição parceira. Os gestores pedem mais treinamento, manuais e suporte dedicado, com comunicação clara.
+
+### Gráfico 14: Identificação de inconformidades do PPE
+### Sentenças que exemplificam as inconformidades
+
+```{r}
+#| label: q20-Inconformidades do PPE
+#| echo: false
+#| warning: FALSE
+#| message: FALSE
+#| fig_alt: "Identificação de inconformidades do PPE"
+#| fig-cap: "**Fonte:** Dados da pesquisa, 2025."
+#| fig-align: center
+#| out-width: "100%" 
+source("q20.R", local = knitr::knit_global())
+g20
+knitr::kable(tabela_contexto5, format = "simple")
+```
+
+Quanto as inconformidades, destacam-se as palavras "contrato", "falta", "comunicação" e "unidade". As sentenças são as mais críticas do relatório. Duas inconformidades graves são relatadas:
+
+- Confusão Contratual: A falta de clareza sobre 1 ano vs. 2 anos de contrato é uma falha de comunicação grave, que gera desmotivação e mina a credibilidade do programa.
+
+- Desvio de Finalidade: A afirmação "Aqui na unidade são os únicos profissionais que temos, se tirar fecha o serviço" é um alerta vermelho. Indica que o PPE está sendo usado para cobrir postos de trabalho permanentes. Isso (a) é ilegal ou irregular, (b) distorce o objetivo de aprendizado, e (c) explica por que os gestores estão sobrecarregados (eles não são mentores, são chefes de uma equipe essencial e subdimensionada).
+
+### Conclusões e recomendações
+
+Quanto a efetividade social, o PPE é eficaz em seu objetivo principal. Promove a inclusão social e profissional, garantindo que os jovens se desenvolvam e se adaptem ao trabalho. Sob a perspectiva dos gestores, a inserção laboral é conduzida com êxito, permitindo o desenvolvimento dos jovens, para atuar de forma proativa e para nutrir boas relações no trabalho. 
+
+Em relação a qualidade, a implementação tem de média a baixa conformidade nos seus processos, transparecendo gargalos de comunicação e suporte ao ponto focal. A política necessita de mais ferramentas de gestão e de capacitação para os pontos focais. 
+
+- Recomendações Prioritárias:
+
+1. Corrigir a Comunicação Central: Definir um canal de comunicação oficial e utilizar um sistema de tickets ou e-mail dedicado. Utilizar o Whatsapp de forma acessória e para casos urgentes. 
+2. Publicar um comunicado claro a todos os gestores e beneficiários sobre a política de duração e prorrogação de contratos. Na medida do possível, essas expectativas devem ser gerenciadas. 
+3. Estruturar e capacitar os pontos focais, oferecendo capacitação sobre formação de lideranças e orientações de carreira.
+4. Criar eventos ou fóruns periodicamente (virtuais ou presenciais) para tirar dúvidas e trazer novidades do PPE. 
+5. Investigar pessoalmente casos de desvio de finalidade. Estabelecer a infra-estrutura de pessoal mínima para que o beneficiário seja indicado para a unidade. 
+6. Garantir que haja um ambiente de supervisão e aprendizado na unidade a qual o jovem será destinado. 
+7. Criar e implementar mais instrumentos de controle e governança, para que haja maior conformidade na experiência. Sob o perspectiva de avaliação de política pública, a intervenção oferecida deve ser equanime para todos os beneficiários. 
