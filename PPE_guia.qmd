@@ -1,0 +1,144 @@
+---
+title: "Avaliação do Projeto Primeiro Emprego - Gestores"
+lang: r
+format: html
+---
+
+### Comandos básicos
+
+ctrl+alt+i para novo chunk
+
+ou
+
+/ e escolhe a opção desejada
+
+no chunk do relatório, sempre colocar
+
+#\| echo: false
+
+#\| warning: false
+
+#\| message: false
+
+### Instalar dependências do sistema no terminal
+
+sudo apt install cmake libharfbuzz-dev libfribidi-dev
+
+sudo apt install libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev libwebp-dev
+
+sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev
+
+### Instalar e carregar pacotes utilizados no relatório
+
+```{r setup, includ=FALSE}
+# Exemplo com os pacotes tidyplots e tidyverse
+install.packages("tidyverse")
+install.packages("tidyplots")
+#install.packages("remotes")
+library(remotes)
+remotes::install_github("sAbed-H/tidyplots")
+# Segunda opção
+install.packages("tidyplots", repos = c('https://jbengler.r-universe.dev', 'https://cloud.r-project.org'))
+library(tidyplots)
+library(tidyverse)
+```
+
+### Importar dados
+
+```{r}
+df <- read_csv("/home/nando/Documentos/Projeto_Primeiro_Emprego/PPE_gestores.csv", show_col_types = FALSE)
+head(df)
+```
+
+### Renomear variáveis
+
+A primeira coluna foi removida pois não é uma questão, apenas o registro de data da coleta.
+
+```{r}
+ncol(df)
+df2 <- df[,2:21]
+nomes <- paste0("q", 1:20)
+df2 <- df2 |>
+  rename_with(~ nomes)
+```
+
+### Questões e utilidades para relatório dos gestores
+
+- q1: variável qualitativa ordinal gráfico de barras e categorização por cor
+- q2: tabela de frequências com valores absolutos e relativos
+- q3: variável qualitativa ordinal gráfico de barras
+- q4: variável textual - questão aberta por lista curta
+- q5: q4
+- q6: q3
+- q7: variável qualitativa nominal com ênfase em categoria(s)
+- q7 e q6: box-plot relacionando qualitativa ordinal e qualitativa nominal
+- q8: variável qualitativa nominal e categorias longas
+- q9: q8 e q5
+- q10: q3
+- q11: q8 e q2
+- q12: q11
+- q13: q3
+- q14 a q18: tabela de frequência de pontos da escala para muitas variáveis
+- q19: q4
+- q20: q4
+
+### Questões e utilidades para relatório dos jovens
+
+### Variáveis excluidas
+- Estado de nascimento
+- Cidade de nascimento
+Ambas foram confundidas com a data de nascimento e estão bem poluídas, provocando muitos dados ausentes. Além disso, a maioria dos válidos na cidade e estado são de Salvador/BA. Pelo menos 600 respondentes são nativos da Bahia e pelo menos 267 são nativos de Salvador.
+- Município de moradia
+Mais uma vez uma questão aberta e com municípios com grafias distintas. De qualquer forma, de Salvador tem pelo menos 272 beneficiários. As cidadsonde trabalhamtambém sãomasi focadas em Salvadoreregiõesmetropolitanas da grande salvador
+- Município onde trabalha pelo PPE
+- Unidade/local de trabalho onde atua no PPE
+
+### Remoção de colunas
+Remover colunas de 1 a 5,7
+
+- q21: q2
+- q22: q3
+- q23: barras com freq. absoluta e relativa com ggplot2
+- q24: q3
+- q25: q2
+- q26: sem saída
+- q27: sem saída
+- q28: sem saída
+- q29: q3
+- q30: q3 agrupando algumas categorias
+- q31: q4 nuvem de palavras
+- q32: Utilizada em conjunto com a 33 em tabela
+- q33: Utilizada em conjunto com a 32 em tabela
+- q34: Não utilizada
+
+- q35: q8
+- q36: q2
+- q37: q2
+- q38: q2
+- q39: gráfico de barras juntando categorias sem legenda
+- q40: q39
+- q41: q2
+- q42: q2
+- q43: q39 e comparação de antes e depois com variáveis qualitativas
+- q44: q2
+- q45: q2
+- q46: q2
+- q47: q39
+- q48: q47
+- q49: gráfico de barras com legenda, sem labels no x e sem titulo na legenda
+- q50: q49 e q50 inclusos no Quarto como imagem
+- q51: imagem
+- q52: imagem
+- q53: imagem
+- q54: imagem
+- q55: imagem
+- q56: imagem
+- q57: imagem
+- q58: imagem
+- q59: qualitativa nominal como factor
+- q60: qualitativa nominal como factor
+- q61: imagem
+- q62: imagem
+- q63: 
+- q64: 
+- q65:  
