@@ -1,6 +1,6 @@
 ---
 title: "Nota técnica"
-format: html
+format: docx
 bibliography: referencias.bib
 ---
 
