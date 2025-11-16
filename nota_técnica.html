@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Nota técnica</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="nota_técnica_files/libs/clipboard/clipboard.min.js"></script>
+<script src="nota_técnica_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="nota_técnica_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="nota_técnica_files/libs/quarto-html/popper.min.js"></script>
+<script src="nota_técnica_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="nota_técnica_files/libs/quarto-html/anchor.min.js"></script>
+<link href="nota_técnica_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="nota_técnica_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="nota_técnica_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="nota_técnica_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="nota_técnica_files/libs/bootstrap/bootstrap-2bb4f877a9253f26d317dd8557581d11.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="nota_técnica_files/libs/quarto-diagram/mermaid.min.js"></script>
+<script src="nota_técnica_files/libs/quarto-diagram/mermaid-init.js"></script>
+<link href="nota_técnica_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Nota técnica</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="metodologia-de-análise-e-práticas-de-reprodutibilidade" class="level2">
+<h2 class="anchored" data-anchor-id="metodologia-de-análise-e-práticas-de-reprodutibilidade">Metodologia de Análise e Práticas de Reprodutibilidade</h2>
+<p>Esta nota técnica descreve o fluxograma de trabalho, os protocolos de segurança de dados e os elementos técnicos empregados na análise de dados da avaliação do Projeto Primeiro Emprego (PPE).</p>
+<section id="fluxograma-de-trabalho-e-reprodutibilidade" class="level3">
+<h3 class="anchored" data-anchor-id="fluxograma-de-trabalho-e-reprodutibilidade">1. Fluxograma de Trabalho e Reprodutibilidade</h3>
+<p>Para garantir a transparência, a reprodutibilidade e a eficiência da análise, foi adotado um ecossistema de ferramentas de ciência de dados. A escolha de cada componente foi deliberada para aderir às boas práticas de pesquisa.</p>
+<p>Linguagem R <span class="citation" data-cites="R">(<a href="#ref-R" role="doc-biblioref">2023</a>)</span>: Escolhida como a linguagem de programação estatística padrão, dada a sua robustez, vasta comunidade acadêmica e ecossistema de pacotes de análise desenvolvidos por estatísticos e praticantes de estatística em diversas áreas do conhecimento.</p>
+<p>Positron: Interface da companhia Posit. Utilizado como o Ambiente de Desenvolvimento Integrado (IDE), permitindo a gestão centralizada de scripts, dados, versionamento e compilação de relatórios.</p>
+<p>Pacotes tidyverse (notadamente dplyr): Empregado para toda a etapa de manipulação e tratamento dos dados. A sua “gramática” de verbos (filter, mutate, group_by, summarise) torna o código de limpeza, tratamento e manipulação legível e auditável. As recomendações de uso do tidyverse foram seguidas a partir de Wickham et al. <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">2019</a>)</span>.</p>
+<p>Pacote Tidyplots de Engler <span class="citation" data-cites="tidyplots">(<a href="#ref-tidyplots" role="doc-biblioref">2025</a>)</span>: Utilizado para a padronização sistemática de todas as saídas gráficas. Ao definir um estilo global garante-se a coesão visual e a qualidade profissional dos gráficos, economizando tempo e evitando a repetição de código.</p>
+<p>Github: Adotado como o sistema de controle de versão. Essencial para a integridade da pesquisa, o Github registrou cada alteração nos arquivos de código (.R) e no relatório (.qmd), permitindo a auditoria completa do processo e o trabalho colaborativo.</p>
+<p>Quarto (.qmd): Utilizado como a ferramenta de produto de dados, para a geração do relatório final. O Quarto permite fundir a narrativa textual (prosa) com o código R e suas saídas (gráficos e tabelas) em um único documento-fonte, garantindo que o relatório seja 100% reprodutível e permita renderizar com um único clique.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD;
+    A[Controle de versão com Github] --&gt; B[Base de dados];
+    A --&gt; C[Scripts de análise];
+    A --&gt; D[Documento Mestre];
+    
+    %% Adicionando IDs SG1 e SG2 para os subgrafos
+    subgraph SG1 ["Ferramentas de Análise"]
+      C -- R no Positron --&gt; C;
+    end
+    
+    subgraph SG2 ["Processo do Relatório"]
+      D --  Quarto para relatório de dados --&gt; D;
+    end
+    
+    C --&gt; D;
+    D --&gt; E[Relatório Final];
+    
+    %% Estilos dos Nós (Mantidos)
+    style A fill:#ececff,stroke:#9370db,stroke-width:8px
+    style B fill:#f9f9f9,stroke:#333,stroke-width:4px
+    style E fill:#f9f9f9,stroke:#333,stroke-width:4px
+    style C fill:#fff9e6,stroke:#ffb347,stroke-width:8px
+    style D fill:#e6fff9,stroke:#00bfa5,stroke-width:8px
+    
+    %% NOVO: Estilo dos Subgrafos (Corrigindo a fonte)
+    style SG1 fill:#f0f0f0,stroke:#999,stroke-width:2px,color:#333
+    style SG2 fill:#f0f0f0,stroke:#999,stroke-width:2px,color:#333
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="conformidade-com-a-lei-geral-de-proteção-de-dados-lgpd" class="level3">
+<h3 class="anchored" data-anchor-id="conformidade-com-a-lei-geral-de-proteção-de-dados-lgpd">2. Conformidade com a Lei Geral de Proteção de Dados (LGPD)</h3>
+<p>O projeto pautou-se por um rigoroso cumprimento da Lei Geral de Proteção de Dados (Lei nº 13.709 de 14de Agosto de 2018), tratando os dados dos participantes com a máxima confidencialidade.</p>
+<p>Dois instrumentos de coleta distintos foram utilizados:</p>
+<p>Questionário dos Gestores (Apêndice A): Este instrumento não coletou nenhuma informação de identificação pessoal (como nome, CPF, e-mail ou matrícula). Por ser totalmente anonimizado na origem, seus dados agregados e o instrumento estão disponíveis no repositório Github do projeto.</p>
+<p>Questionário dos Beneficiários (Apêndice B): Este instrumento, para fins de controle de duplicidade e acompanhamento longitudinal, contém dados de identificação. Em conformidade com a LGPD, a base de dados bruta dos beneficiários (Apêndice B) não está disponível publicamente no repositório Github ou em qualquer outro meio de acesso livre.</p>
+<p>A disponibilização desta base de dados para fins de auditoria ou replicação da pesquisa por pares acadêmicos ou órgãos de controle é condicionada a uma solicitação formal por e-mail. Mediante a solicitação, os dados serão fornecidos com a supressão completa de todas as colunas ou variáveis que permitam a identificação, direta ou indireta, dos respondentes.</p>
+</section>
+<section id="elementos-técnicos-da-análise" class="level3">
+<h3 class="anchored" data-anchor-id="elementos-técnicos-da-análise">3. Elementos Técnicos da Análise</h3>
+<p>A metodologia de análise foi desenhada para garantir transparência e robustez, priorizando a fidelidade aos dados coletados.</p>
+<p>Limpeza e Tratamento dos Dados</p>
+<p>Adotou-se uma política estrita de não-imputação ou substituição de dados. Valores ausentes (NA) não foram preenchidos por médias, medianas ou qualquer outro método sintético. Esta abordagem garante que as análises reflitam exclusivamente as respostas fornecidas pelos participantes, sem introduzir viés do pesquisador.</p>
+<p>A limpeza dos dados, realizada com o pacote dplyr <span class="citation" data-cites="dplyr">(<a href="#ref-dplyr" role="doc-biblioref">2023</a>)</span>, focou-se exclusivamente na eliminação de observações comprovadamente inválidas em questões abertas (como as de localização, que foram “poluídas” por entradas incorretas) e na renomeação/reordenação de variáveis para facilitar a análise.</p>
+<p>Estrutura de Código e Execução</p>
+<p>O fluxo de trabalho em R foi estruturado para máxima modularidade e reprodutibilidade, conforme visto nos arquivos Relatório_gestores.qmd e Relatório_beneficiários.qmd</p>
+<p>Manipulação (dplyr): O pacote dplyr foi utilizado para filtrar, selecionar, recodificar (mutate) e sumarizar (group_by, summarise) os dados brutos, preparando-os para a visualização. Saídas com percentuais foram calculadas com scales <span class="citation" data-cites="scales">(<a href="#ref-scales" role="doc-biblioref">2022</a>)</span>.</p>
+<p>A manipulação de dados textuais foi realizada com uma série de pacotes de mineração de texto, sendo eles o tidytext <span class="citation" data-cites="tidytext">(<a href="#ref-tidytext" role="doc-biblioref">2016</a>)</span>,stringr <span class="citation" data-cites="stringr">(<a href="#ref-stringr" role="doc-biblioref">2022</a>)</span> e stopwords <span class="citation" data-cites="stopwords">(<a href="#ref-stopwords" role="doc-biblioref">2023</a>)</span>. A nuvem de palavras foi gerada com o ggwordcloud <span class="citation" data-cites="ggwordcloud">(<a href="#ref-ggwordcloud" role="doc-biblioref">2023</a>)</span></p>
+<p>Visualização (tidyplots): O pacote tidyplots foi usado para gerar todas as saídas gráficas. Uma função de estilo global foi definida no início do script, garantindo que todos os gráficos seguissem a mesma identidade visual (tamanho, fonte, cores) de forma automática. O pacote tidyplots foi moldado utilizando o pacote ggplot2 <span class="citation" data-cites="ggplot2">(<a href="#ref-ggplot2" role="doc-biblioref">2016</a>)</span>, construindo uma câmada acima do ggplot2 que permite escrever códigos mais curtos e com menos perda de compatibilidade. A visualização no documento para as tabelas e gráficos foi formatada a partir do uso do knitr <span class="citation" data-cites="knitr">(<a href="#ref-knitr" role="doc-biblioref">2023</a>)</span>.</p>
+<p>Estrutura de Arquivos: O projeto é composto por dois relatórios mestres (gestores.qmd e beneficiarios.qmd). Cada saída (gráfico ou tabela) possui seu próprio script .R individual (ex: q21.R, q22.R, etc.).</p>
+<p>Execução Individual: É possível executar cada script .R de forma independente para verificar ou replicar uma saída específica.</p>
+<p>Execução Completa: O arquivo .qmd mestre utiliza a função source() para chamar e executar, em ordem, todos os scripts .R individuais, compilando o relatório final (ex: .docx) de uma só vez.</p>
+<p>Controle de Versão com Github</p>
+<p>O Github foi central para a gestão do código. Cada alteração nos scripts .R ou no texto do .qmd foi registrada através de “commits”. Isso cria uma trilha de auditoria completa, permitindo verificar o que foi alterado, quando e por quem, garantindo a integridade da análise e prevenindo a perda de trabalho.</p>
+</section>
+<section id="referências-técnicas" class="level3">
+<h3 class="anchored" data-anchor-id="referências-técnicas">Referências Técnicas</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-stopwords" class="csl-entry" role="listitem">
+Benoit, Kenneth, David Muhr, and Kohei Watanabe. 2023. <em>Stopwords: Multilingual Stopword Lists</em>. <a href="https://CRAN.R-project.org/package=stopwords">https://CRAN.R-project.org/package=stopwords</a>.
+</div>
+<div id="ref-tidyplots" class="csl-entry" role="listitem">
+Engler, Jan Broder. 2025. <em>Tidyplots: Tidy Plots for Scientific Papers</em>. <a href="https://CRAN.R-project.org/package=tidyplots">https://CRAN.R-project.org/package=tidyplots</a>.
+</div>
+<div id="ref-ggwordcloud" class="csl-entry" role="listitem">
+Le Comte, Erwan. 2023. <em>Ggwordcloud: A Word Cloud Geom for Ggplot2</em>. <a href="https://CRAN.R-project.org/package=ggwordcloud">https://CRAN.R-project.org/package=ggwordcloud</a>.
+</div>
+<div id="ref-R" class="csl-entry" role="listitem">
+R Core Team. 2023. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-tidytext" class="csl-entry" role="listitem">
+Silge, Julia, and David Robinson. 2016. <span>“Tidytext: Text Mining and Analysis Using Tidy Data Principles in r.”</span> <em>JOSS</em> 1 (3): 37. <a href="https://doi.org/10.21105/joss.00037">https://doi.org/10.21105/joss.00037</a>.
+</div>
+<div id="ref-ggplot2" class="csl-entry" role="listitem">
+Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
+</div>
+<div id="ref-stringr" class="csl-entry" role="listitem">
+———. 2022. <em>Stringr: Simple, Consistent Wrappers for Common String Operations</em>. <a href="https://CRAN.R-project.org/package=stringr">https://CRAN.R-project.org/package=stringr</a>.
+</div>
+<div id="ref-tidyverse" class="csl-entry" role="listitem">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy DÁgostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-dplyr" class="csl-entry" role="listitem">
+Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
+</div>
+<div id="ref-scales" class="csl-entry" role="listitem">
+Wickham, Hadley, and Dana Seidel. 2022. <em>Scales: Scale Functions for Visualization</em>. <a href="https://CRAN.R-project.org/package=scales">https://CRAN.R-project.org/package=scales</a>.
+</div>
+<div id="ref-knitr" class="csl-entry" role="listitem">
+Xie, Yihui. 2023. <em>Knitr: A General-Purpose Package for Dynamic Report Generation in r</em>. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
+</div>
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

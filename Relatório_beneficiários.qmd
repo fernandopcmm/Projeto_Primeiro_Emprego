@@ -6,6 +6,36 @@ format: docx
 
 ## Relatório dos beneficiários
 
+Nesta segunda parte de avaliação do PPE, as perspectivas dos beneficiários foram mensuradas aoaplicar um questionário coerente com instrumentos de avaliação de políticas voltadas para geração de emprego e renda. O instrumento completo pode ser consultado no Apêndice B.
+
+### Sumário executivo
+
+Este relatório avalia o Projeto Primeiro Emprego (PPE) no seu primeiro ano de execução, pela perspectiva dos beneficiários. Ao todo, 711 respostas válidas embasam os resultados deste relatório. A análise tem  foco em três eixos: o perfil dos beneficiários, contexto socioeconômico e as percepções sobre o trabalho. O instrumento de pesquisa adotado inclui perguntas que permitem avaliar a eficácia do PPE para a geração de renda,promoção demobilidade social e aumento deempregabilidade, comparando com a situação antes da entrada no PPE. 
+De forma geral, os resultados indicam que o PPEé uma política de alta eficácia e alto impacto. O PPE demonstra sucesso em múltiplos aspectos: 
+
+A política se destina ao público-alvo? O PPE atinge seu público-alvo com precisão. Antes do programa, 80,1% dos beneficiários viviam em famílias com renda de até 1,5 salário mínimo (SM) e 21,7% recebiam Bolsa Família.
+
+O PPE  promove impacto econômico de curto prazo na renda das familias? O programa promove uma clara transição de renda. O número de famílias na faixa de 1,5-3 salários mínimos aumentou 140% após o ingresso no PPE, e a renda é convertida em bens de consumo duráveis (notebooks, eletrodomésticos), melhorando a qualidade de vida material.
+
+O PPE promove equidade no contexto de desigualdade social/racial na Bahia? A política é um vetor de equidade, com 86,8% dos beneficiários autodeclarados negros (pretos ou pardos) e 80,4% sendo mulheres, alocando-as em vagas técnicas alinhadas às suas formações.
+
+A qualificação profissional é percebida  pelos beneficiários? O programa não é apenas uma política de renda, mas de qualificação. A satisfação com o trabalho é de 95,3%, e 98,3% dos beneficiários consideram que o trabalho contribui "amplamente" ou "parcialmente" para seu exercício profissional, indicando uma aderência quase perfeita entre a formação técnica e a vaga.
+
+O PPE contribui para a educação dos beneficiários? O PPE atua como um catalisador para a educação continuada, com 88,3% reportando alto desejo de seguir estudando. Além disso, 93,7% dos beneficiários sentem-se mais confiantes e preparados para o mercado de trabalho, quebrando uma barreira psicológica de insegurança.
+
+A principal fraqueza identificada reside na abrangência,focalizada nomunicípio de Salvador e regiões perifericas da capital. Há também uma dispersão da faixa etária (23,8% acima de 35 anos). Importante avaliar se estas são características deliberadas ou uma distorção provocada pelos critérios de entrada adotados.
+
+A seguir,segue os principais pontos fortes e fracos do PPE sob a perspectiva dos beneficiários. 
+
+
+| Pontos Fortes (Resultados Observados) | Pontos Fracos (Potenciais e Operacionais) |
+| :--- | :--- |
+| **Impacto Massivo na Renda Familiar:** Transição de 80,1% das famílias da faixa de 0-1,5 SM para faixas superiores. Aumento de 140% no estrato de 1,5-3 SM. | **Fragilidade na Coleta de Dados Abertos:** A menção no script de dados "poluídos" para localização (q27, q28) é confirmada como uma fraqueza operacional, impedindo análises de desenvolvimento regional. |
+| **Excelente Aderência Vaga-Formação:** 98,3% reportam que o trabalho contribui para o exercício profissional, maximizando o investimento público em educação técnica. | **Dispersão Etária Inesperada:** A política atende a um público significativamente mais velho (23,8% > 35 anos) do que o nome "Primeiro Emprego" sugere, necessitando de análise para entender este fenômeno. |
+| **Focalização em Grupos Vulneráveis:** O programa é um sucesso em equidade, com 86,8% de beneficiários negros, 80,4% de mulheres e 21,7% de famílias do Bolsa Família. | **Inconsistência nos Dados de Experiência:** Há uma contradição gritante entre o resultado de 63,8% declararem que "Não" trabalharam antes e que 83% "Sim" trabalharam antes, mesmo que informalmente. A Q29 é mais provável de refletir o *primeiro emprego formal*. |
+| **Alto Índice de Satisfação e Retenção:** 95,3% de satisfação geral e 98,6% de percepção de um ambiente de trabalho saudável indicam alta qualidade das vagas e menor evasão. | **Falta de Detalhamento sobre o Empregador:** O questionário foca no beneficiário, mas na análise fica clara a necessidade de investigar mais as condições de trabalho do  empregador. |
+| **Ganho de Capital Psicológico:** 93,7% sentem-se mais confiantes e preparados, quebrando a barreira da insegurança profissional, um dos ativos mais importantes do projeto. | |
+
 ### Perfil dos beneficiários
 
 ```{r}
@@ -41,6 +71,9 @@ estilo <- function(x) x |>
 tidyplots_options(my_style = estilo)
 ```
 
+A primeira parte da análise se concentra nas características demográficas do público atendido. 
+A compreensão do perfil demonstra a focalização da política e as características demográficas do público atendido, que são inerentes a gestão e aprimoramento do PPE. Inicialmente foi perguntado sobre as redes sociais mais utilizadas, sumarizadas na Tabela 05.
+
 ### Tabela 05: Redes sociais mais utilizadas
 
 ```{r}
@@ -56,6 +89,10 @@ source("q21.R", local = knitr::knit_global())
 g21
 ```
 
+A Tabela 05 indica que 70,5% (464) dos beneficiários usam o Instagram, enquanto 27,2% (179) declaram não participar de nenhuma rede social. O dado revela que há dois públicos distintos. O primeiro indica que o Instagram é um ótimo canal para engajamento e divulgação do PPE. Contudo, mais de 25% dos beneficiários indicam maior aderência a outros canais de comunicação, exigindo que a política mantenha canais de comunicação offline, como SMS, E-mail ou comunicação intermediada pelos pontos focais. Dessa forma, é possível garantir um fluxo de informação que contemple os diferentes públicos. 
+
+Para verificar o momento que vive o beneficiário no PPE, foi perguntado o ano de entrada no PPE, conforme o Gráfico 15.
+
 ### Gráfico 15: Ano de entrada no PPE
 ```{r}
 #| label: q22- Ano de entrada no PPE
@@ -69,6 +106,10 @@ g21
 source("q22.R", local = knitr::knit_global())
 g22
 ```
+
+O Gráfico 15 demonstra que a maioria dos beneficiários atuais ingressou em 2024 (537), em comparação com 173 em 2025. Portanto, a perspectiva da maioria dos respondentes permite uma avaliação com tempo de maturação adequado. No entanto, mesmo para os que entraram em 2025, o instrumento de pesquisa se mostra adequado, pois não engloba perguntas que requerem alto grau de maturação. Corrobora essa afirmação o resultado do cruzamento do ano de entrada com o grau de satisfação dos beneficiários, não sendo observadas diferenças entre os mais velhos no PPE (2024) e os mais novos (2025). 
+
+Em seguida, foi perguntada a idade em anos,sendo sumarizada em faixas etárias, conforme o Gráfico 16. 
 
 ### Gráfico 16: Faixa etária dos beneficiários
 
@@ -84,6 +125,9 @@ g22
 source("q23.R", local = knitr::knit_global())
 g23
 ```
+
+A distribuição etária é notadamente dispersa: 16-21 anos (32,7%), 22-25 (21,2%), 26-35 (22,3%) e Acima de 35 (23,8%). Ao contrário do que o PPE sugere, o projeto não capta entre os egressos de cursos técnicos apenas jovens. Quase um quarto (23,8%) dos beneficiários tem mais de 35 anos. Isso sugere que o PPE está, na prática, servindo também como uma política de requalificação e reinserção para egressos de cursos técnicos que podem ter buscado formação mais tarde na vida. Sendo este um segmento atendido pelo PPE, é sugerido que se compreenda a trajetória desse público, contribuindo para a formação de trilhas de desenovlvimento de carreira adequadas para pessoas com mais experiência de vida. 
+EM seguida, o gênero foi captado com os beneficiários, tendo os resultados apresentados no Gráfico 17. 
 
 ### Gráfico 17: Gênero
 
@@ -101,6 +145,10 @@ source("q24.R", local = knitr::knit_global())
 g24
 ```
 
+O PPE é formado majoritariamente pelo gênero feminino (571, ou 80,4%), em comparação com 136 (19,1%) do masculino e 3 (0,4%) Não Binários. A política tem um viés de gênero,apesar de não direcionar esforços para promover este viés. Pode-se inferir que é um viés natural diante do contexto social das regiões atendidas. Explicações alternativas como viés provocado por outras políticas, devem ser investigadas. Ao observar as formações técnicas dos egressos,foi observada a predominância de egressos do curso de Enfermagem e Administração, sendo áreas culturamente dominadas pelo público feminino, com maior ênfase em enfermagem. É sugerido que esse  viés seja proativamente trabalhado pela equipe técnica do PPE, estimulando a diversidade de cursos técnicos ou revisando estratégias de formação de cursos técnicos da rede estadual, para maior aderência entre oferta e  demanda por profissionais no mercado de trabalho.
+
+Em seguida, foi questionada a orientação sexual,sendo sumarizada na Tabela 06.
+
 ### Tabela 06: Orientação sexual
 
 
@@ -116,12 +164,16 @@ g24
 source("q25.R", local = knitr::knit_global())
 g25
 ```
-Para a q26 - concluiu o ensino médio, 708 respondentes indicaram que sim.Isso se deve a forma de entrada no PPE, sendo necessário ser  egressos de cursos técnicos de nível médio a partir de 2015. 
 
-Sobre estado de nascimento (q27) e cidade de nascimento (q28) Ambas foram confundidas com a data de nascimento e estão bem poluídas, provocando muitos dados ausentes. Além disso, a maioria dos válidos na cidade e estado são de Salvador/BA. Pelo menos 600 respondentes são nativos da Bahia e pelo menos 267 são nativos de Salvador.
-- Município de moradia
-Mais uma vez uma questão aberta e com municípios com grafias distintas. De qualquer forma, de Salvador tem pelo menos 272 beneficiários. 
-q32 q33 e q34 pergunta sobre muunicipio de moradia,,municipio onde trabalha e localonde trabalha: . As cidadsonde trabalhamtambém sãomasi focadas em Salvadoreregiõesmetropolitanas da grande salvador
+Os resultados mostram que a maioria dos respondentes é heterossexual (91,3%). Estes resultados são coerentes com a média nacional,de acordo com dados da Pesquisa Nacional de Saúde. Os resultados também mostram que há a necessidade vinculaçãode políticas de orientação sexual,para contemplar os públicos homossexual,bissexual e aqueles que preferiram não responder. 
+
+A maior parte dos respondentes (708) indicaram que já concluiram o ensino médio, indicando que o critério de ser egresso de  curso técnico de nível médio tem funcionado plenamente. As observações restantes podem ser investigadas individualmente pela equipe técnica, mas provavelmente configuram erro de registro ao responder o questionário.
+
+Sobre o estado de nascimento e a cidade de nascimento, a maior parte dos respondentes são naturais de Salvador, Bahia (600). Pelo menos 30 respondentes responderam nomes de cidades que não existem ou informaram a data de nascimento. Quanto ao município, pelo menos 272 beneficiários residem em Salvador, bem como trabalham em Salvador e regiões circunvizinhas. É sugerido que em futuras coletas seja utilizada a caixa de seleção comm municípios do etado da Bahia, para evitar poluição nas respostas. Depreende-se destes resultados que o PPE em seu primeiro ano se concentrou na capital bahiana. 
+
+Sobre a abrangência de municípios atendidos, ao todo 62 municípios bahianos foram mencionados: Acaraci, Alagoinhas, Amargosa, Anguera, Araçás, Barra do Rocha, Barragem Leste, Barro Alto, Barrocas, Boa Vista do São Caetano, Boquira, Brumado, Caetite, Caetité, Cajazeiras, Camaçari, Candeias, Ceasa, Cicero Dantas, Cícero Dantas, Cruz das Almas, Dário Meira, Dias D'Ávila, Dom Macedo Costa, Eunápolis, Feira de Santana, Governador Mangabeira, Guanambi, Ibirataia, Iitagiba, Ilhéus, Ipiau, Ipiaú, Irecê, Itaberaba, Itabuna, Itacaranha, Itagibá, Jequié, Jitaúna, Juazeiro, Lafaiete Coutinho, Lauro de Freitas, Morrinhos, Mundo Novo, Paulo Afonso, Presidente Dutra, Salvador, Santa Maria da Vitória, Santo Antônio de Jesus, São Sebastião do Passé, Seabra, Senhor do Bonfim, Serrinha, Simões Filho, Teixeira de Freitas, Uauá, Ubatã, Uibaí, Valeria, Vera Cruz, Vitória da Conquista.
+
+Em seguida, foi questionado se o respondente já trabalhou antes da entrada no PPE. Os resultados foram apresentados no Gráfico 18. 
 
 ### Gráfico 18: Você já trabalhou antes do PPE?
 
@@ -138,6 +190,9 @@ source("q29.R", local = knitr::knit_global())
 g29
 ```
 
+De acordo com o resultados, há uma discrepância nos resultados desta questão com a questão sumrizada no Gráfico 38 posteriormente. A contradição reside no resultado de que 453 respondentes indicaram que não haviam trabalhado antesdo PPE. Na questão posterior, 584 respondentes indicaram que já trabalharam, ainda que informalmente. Essa discrepância que ao perguntar somente sobre trabalho, o trabalho informal realizado previamente tende a ser ignorado pelos respondentes. Assumindo que o Gráfico 18 foi compreendido como trabalho formal, 338 respondentes informaram que não trabalharam, mas responderam que já trabalharam, ainda que informalmente. Esse resultado indica uma quebra de paradigma para os beneficiários, que puderam formalizar oprimeiro emprego sem a exigência de experiência prévia.
+Na Tabela 07 tem-se sumarizado o ano de conclusão do ensino médio. Esta variável é importante para compreender o tempo médio da formação do ensino médio até o primeiro emprego.
+
 ### Tabela 07: Ano de conclusão do ensino médio?
 
 ```{r}
@@ -152,6 +207,10 @@ g29
 source("q30.R", local = knitr::knit_global())
 g30
 ```
+
+Os resultados mostram que 1/4 dos respondentes obteve o ensino médio até 2015, indicando uma lacuna entre a formação do ensino médio e a taxa de empregabilidade. NO entanto,pouco mais de 50% dos beneficiários concluiram o ensino médio até 2021. As faixas entre 2016 e 2020 são ocupadas por menos de 10% dos respondentes cada. Este resultado indica que a política tem atendido o público recém formado no ensino médio,  mas que tem capilaridade para resgatar os formados a mais tempo, demonstrando que a oferta atende critérios equanimes neste aspecto. 
+
+No Gráfico 19, tem-se os resultados sumarizados sobre qual a formação técnica do respondente.As palavras mais frequentes tem o tamanho da fonte aumentado. 
 
 ### Gráfico 19: Qual sua formação técnica?
 
@@ -168,6 +227,10 @@ source("q31.R", local = knitr::knit_global())
 g31
 ```
 
+Ps resultados da nuvem de palavras mostra que enfermagem,administração,informática e logística dominam as expressões mais utilizadas. Este resultado explica parcialmente a grande presença do público feminino entre os beneficiários. Cabe a equipe de técnica se a oferta do PPE é coerente com a distribuição de formados nos cursos técnicos que atendem aos critérios de entrada. 
+
+Ainda sobre o perfil, busca-se informações sobre a proximidade da residência e do trabalho. Portanto, foi questionado se o município de residência é o mesmo onde o beneficiário trabalha pelo PPE. Os resultados são mostrado na Tabela 08.
+
 ### Tabela 08: Município de residência é o mesmo onde trabalha?
 
 ```{r}
@@ -183,9 +246,11 @@ source("q32.R", local = knitr::knit_global())
 g32
 ```
 
-O 33 já foi utilizado junto com a 32 e a 34 sobre o localde trabalho não foi utilizada. 
+A tabela indica um resultado positivo,tendo 595 beneficiários (87,6%) que trabalham no mesmo município onde residem. Este é um indicador de qualidade de vida. Ao alocar o beneficiário em sua própria cidade, o PPE minimiza o tempo com deslocamento, reduzindo o desgaste e aumentando a probabilidade de retenção no trabalho e continuidade dos estudos.
 
 ### Perfil socioeconômico e aspectos individuais e familiares
+
+Este eixo inclui variáveis de perfil, com foco no impacto direto do PPE na renda e na estrutura social dos beneficiários, medindo a capacidade da política de promover mobilidade social. O Gráfico20 pergunta o estado civil dos respondentes. 
 
 ### Gráfico 20: Estado civil
 
@@ -202,6 +267,10 @@ source("q35.R", local = knitr::knit_global())
 g35
 ```
 
+O Gráfico 20 mostra que a maiorparte  dos respondentes são solteiros (548), seguido dos casados (126). Estes resultados são coerentes com as faixas etárias e indicam estruturas familiares comuns aos solteiros,que é de morar com os pais. 
+
+Em seguidafoi questionado sobre a autodeclaração de raça?cor. Os resultados são sumarizados na Tabela 09. 
+
 ### Tabela 09: Raça/Cor
 
 ```{r}
@@ -216,6 +285,10 @@ g35
 source("q36.R", local = knitr::knit_global())
 g36
 ```
+
+O PPE é majoritariamente formado por pessoas pretas e pardas,sendo um resultado coerente coma distribuição de raça/cor na Bahia. O PPE através deste recorte se mostra como um vetor de combate ao racismo estrutural, ao promover o acesso a emprego e renda e de forma qualificada, buscando a agregar formação profissional como princípio educativo. 
+
+A religião dos beneficiários também foi conhecida e sumarizada na Tabela 10.
 
 ### Tabela 10: Qual asua religião
 
@@ -232,6 +305,10 @@ source("q37.R", local = knitr::knit_global())
 g37
 ```
 
+Os resultados mostram que o público evangêlico é o mais representativo, seguido do público católico e dos que não tem religião. A diversidade de religiões é coerente com a laicidade praticada no ordenamento jurídico brasileiro e indica que nenhum aspecto religioso deve ser pautado como forma de ação do PPE, principalmente para garantir a participação de indivíduos que tem ou não religião.
+
+Sobre a dinâmica do lar, foi questionado onde e com que o beneficiário mora. Os resultados estão apresentados na Tabela 11.
+
 ### Tabela 11: Onde e com quem você mora atualmente?
 
 ```{r}
@@ -247,8 +324,11 @@ source("q38.R", local = knitr::knit_global())
 g38
 ```
 
-### Gráfico 20: Quantas pessoas, da sua família, moram com você na mesma casa?
+De forma coerente com a pergunta do estado civil, cuja  maioria são solteiros, a maior parte (49,9%) informou que mora com os pais/parentes. No entanto, a estrutura familiar se mostra diversificada, o que leva a conexão com as faixas etárias diversificadas. Ao cruzar variáveis de faixa etária, com quem mora e renda, foi possível verificar que os beneficiários mais velhos são os  principais responsáveis pela diversidade de estruturas familiares e que a composição da renda não é complementar, mas essencial para este nicho. 
 
+Também foi questionado quantas pessoas da família, moram na mesma casa. Os resultados podem ser visualizados no Gráfico 20. 
+
+### Gráfico 20: Quantas pessoas, da sua família, moram com você na mesma casa?
 
 ```{r}
 #| label: q39 quantas pessoas moram junto
@@ -263,8 +343,11 @@ source("q39.R", local = knitr::knit_global())
 g39
 ```
 
-### Gráfico 21: Somando a sua renda com a renda dos seus familiares que moram com você, quanto é, aproximadamente a renda familiar?
+A maior parte dos respondentes está na faixa de duas pessoas, além do beneficiário, oscilando entre 1 e 5 com alta representatividade. 86 respondentes indicaram que  moram sozinhos. 53 respondentes indicam que moram com 5 mais pessoas. Esse perfil de estrutura familiar é coerente com a média nacional. No entanto, é importante ter uma atenção especial para aqueles beneficiários com famílias numerosas. Ao verificar os índices de satisfação com o número depessoas quem moram na casa, tanto aqueles que moram sozinhos como aqueles que moram com 5 ou  mais pessoas, marcaram índicesaltos de satisfação com o PPE. Este resultado indica que o PPE estruturas familiares que fogem do padrão não são detratores do projeto. 
 
+Em seguida,foi verificada a renda familiar dos respondentes, sendo sumarizados no Gráfico 21.
+
+### Gráfico 21: Somando a sua renda com a renda dos seus familiares que moram com você, quanto é, aproximadamente a renda familiar?
 
 ```{r}
 #| label: q40 renda familiar
@@ -279,8 +362,11 @@ source("q40.R", local = knitr::knit_global())
 g40
 ```
 
-### Tabela 12: Situação financeira
+Os resultadosdo Gráfico 21 confirmam o alinhamento do PPE para o público-alvo,  atingindo majoritariamente beneficiários que recebem até 1,5 salários mínimos e entre1,5  e 3 salários mínimos. Ao realizar cruzamentos entrea renda familiar e outros indicadores do instrumento de pesquisa,foi evidenciado que o impacto econômico do PPE tem sido significativo para as familias envolvidas. 
 
+Em seguida, os respondentes indicaram sua situação financeira. Os resultados estão na Tabela 12. 
+
+### Tabela 12: Situação financeira
 
 ```{r}
 #| label: q41 situação financeira
@@ -294,6 +380,9 @@ g40
 source("q41.R", local = knitr::knit_global())
 g41
 ```
+
+Os resultados da Tabela  12 indicam que a maior parte dos respondentes contribuem com o sustento da família (48,8%). 19,1 se sustenta totalmente com a renda do PPE e pouco mais de 10% além do PPE,recebem alguma ajuda ou tem todos os gastos pagos pela familia. Estes resultados indicam aderência do PPE com o públic-alvo, pois os públicos a serem atendidos devem ser formados majoritariamente por beneficiários que contribuem na renda familiar. 
+Outra questão que indica as condições familiares é a situação de moradia. Os resultados estão sumarizados na Tabela 13. 
 
 ### Tabela 13: Situação de moradia
 
@@ -309,6 +398,10 @@ g41
 source("q42.R", local = knitr::knit_global())
 g42
 ```
+
+De acordo com a Tabela 13, 89,4% dos beneficiários residem em zona urbana. Estes resultados são coerentes com os resultados de município de moradia e de trabalho, sendo concentrados em Salvador e arredores,sendo esta uma zona urbana. É necessário avaliar seo PPE em seu primeiro ano pretendia abranger zonas rurais,pois há apenas 7,1% de residentes em zonas rurais. 24 respondentes indicaram que moram em zona rural e longe do trabalho. Estes resultados indicam que a equipe técnica deve dar atenção especial a estes beneficiários, para garantir a qualidade de vida no trabalho. 
+
+Para avaliar se o PPE garantiu expansão da renda familiar a curto prazo, foi questionado qual era a renda familiar antes do PPE. Os resultados estão sumarizados no Gráfico 22. O diagnóstico de alteração da faixa de renda familiar foi sumarizado no Gráfico 23.
 
 ### Gráfico 22: Renda familiar antes do PPE
 
@@ -329,6 +422,11 @@ g43
 contig4
 ```
 
+Os resultados da renda antes do PPE, 159 beneficiários indicaram que não tinham renda familiar. No resultado de renda familiar atual, houve diminuição para 46 respondentes. Houve alteração positiva na faixa de renda entre 1,5 e 3 salários mínimos,saltando de 115 para 276.
+Ao avaliar o Gráfico 23, combinando a renda familiar de antes e durante o PPE, 328 melhoraram a renda familiar,avançando pelo menos uma faixa de renda familiar. Outros 328 mantiveram e apenas 34 indicaram que da renda familiar. Os resultados apontam de forma inequivoca a geração e transição de renda para faixas de menor risco a vulnerabilidades sociais. Mesmo a manutenção da renda é um resultado possitivo, pois garante estabilidade na renda. Como boa parte dos beneficiários utiliza a renda no PPE para contribuir no sustento familiar, isso reforça o impacto social da política e estende para além dos beneficiários, também para suas famílias. 
+
+Também foi questionado se a familia recebe algum benefício social. Os resultados podem servisualizados no Gráfico 24. 
+
 ### Gráfico 24: Recebe algum benefício social?
 
 ```{r}
@@ -343,6 +441,10 @@ contig4
 source("q44.R", local = knitr::knit_global())
 g44
 ```
+
+A maior parte das famílias indicou que não recebe. Para articulação de políticas, é  importante salientar que políticas de emprego e renda buscam a saída de políticas de assistência,complementando a rede de proteção social através da inclusão produtiva,autonomia e inserção no mercado de trabalho. Portanto,espera-se que ao longo do PPE, diminua o número de famílias que contam com benefícios sociais,como o Bolsa Família. 
+
+Complementando a situação e movimentação de renda familia, alguns indicadores são cruciais para que essa expansão de renda aconteça e tenha ramificações que gere condições de autonomia do  beneficiário como profissional e cidadão. Sobre antecedentes, a escolaridade do pai e da mãe são indicativos de mobilidade sociale por isso foram questionados. Os resultados estão sumarizados nas Tabelas 14 e 15. 
 
 ### Tabela 14: Até que ano seu pai estudou?
 
@@ -376,6 +478,10 @@ source("q46.R", local = knitr::knit_global())
 g46
 ```
 
+Os resultados mostram que a maioria dos pais possuem baixa escolaridade. 42,2% das mães e 31,4% dos pais concluíram o Ensino Médio, mas 50% dos pais e 38,9% das mães têm apenas o Ensino Fundamental ou nenhuma escolaridade. Os benefíciarios tem o ensino médio completo, indicando uma consolidação do processo de mobilidade social em 1 geração. O investimento do Estado do PPE em conjunto com outras políticas educacionais demonstra uma quebra do ciclo de baixa escolaridade, e como consequência, das vulnerabilidades sociais e econômicas. 
+
+O PPE entre os seus objetivos, também busca a formação profissional como principio educativo. Portanto, continuar estudando e lendo livros enquanto trabalha no PPE, são indicadores fundamentais para o cumprimento dos objetivos do PPE. No Gráfico 25, são sumarizados os resultados sobre livros lidos por semana. 
+
 ### Gráfico 25: Livros lidos por semana
 
 ```{r}
@@ -391,8 +497,10 @@ source("q47.R", local = knitr::knit_global())
 g47
 ```
 
-### Gráfico 26: Horas de estudo por semana
+Os resultados mostram que a maioria dos respondentes lê entre 1 e 2 livros por semana, seguido daqueles que lêem entre 3 e 5 livros por semana. O resultado negativo fica por conta dos 134 beneficiários que afirmam não ler nenhum livro completo em 1 semana. É sugerido que as ações da equipe técnica junto aos pontos focais, incentive com afinco a leitura como hábito dos beneficiários. 
+Também foi perguntado sobre as horas de estudo por semana, tendo seus resultados sumarizados no Gráfico 26. 
 
+### Gráfico 26: Horas de estudo por semana
 
 ```{r}
 #| label: q48 horas de estudo por semana
@@ -407,47 +515,113 @@ source("q48.R", local = knitr::knit_global())
 g48
 ```
 
+A maior parte dos respondentes indicou estudar de 1 a 3 horas por semana (381). O resultado preocupante foi o de 134 respondentes que indicaram não estudar nem 1 hora completa. Estes resultados reforçam a necessidade de conscientizar os beneficiários da prática de estudo e leitura, como parte fundamental da qualificação profissional. 
+
 ### Aspectos relacionados ao trabalho
+
+Este eixo avalia a experiência no ambiente de trabalho, que é fundamental em uma política de emprego (que visa qualificar) para uma política somente de renda (que visa apenas transferir).
+
+Os respondentes indicaram o grau de satisfação com as instalações físicas do local de trabalho ao qual foram designados. Os resultados aparecem no Gráfico 27. 
 
 ### Gráfico 27: As condições gerais das instalações físicas do seu trabalho são adequadas?
 
 ![Condições das instalações físicas](g49.png)
 
+Os resultados são positivos, indicando que a maior parte dos beneficiários considera as instalações físicas adequadas. O resultado preocupante fica por conta dos 95 beneficiários não considerama s isntalações físicas adequadas. 
+
+Também foi questionado como o beneficiário se sente em relação ao trabalho oriundo do PPE. Os resultados foram sumarizados no Gráfico 28. 
+
 ### Gráfico 28: De forma geral, como se sente em relação ao trabalho oriundo do PPE?
 
 ![Grau de satisfação geral](g50.png)
+
+Os resultados são excelentes. Este indicador avalia globalmente o PPE e indica que os beneficiários, quase emcompletude, estão satisfeitos com o trbalho. Estes resultados indicam que mesmo com adversidades pontuais para alguns beneficiários, como a distância de casa para o trabalho ou a diminuição na renda famíliar, ainda assim, o grau de satisfação se mantém com resultado excelente. 
+Também foi questionado se a instituição empregadora e parceira do PPE consegue auxiliar o beneficiário a progredir na carreira. Os resultados estão apresentados no Gráfico 29.
 
 ### Gráfico 29: A sua instituição empregadora te auxilia a progredir na carreira?
 
 ![Auxilio para progredir na carreira](g51.png)
 
+Os resultados do Gráfico 29 indicam que os beneficiários, em maioria conseguem enxergar progresso na carreira, impulsionado pela instituição promotora. 
+A habilidade com recursos audiovisuais e tecnológicos também é peça fundamental para progressão na carreira. Por isso, foi questionado se os respondentes caracterizam o uso de tais recursos no trabalho. Os resultados podem ser visualizados no Gráfico 30. 
+
 ### Gráfico 30: Como você caracteriza sua experiência no uso de recursos audiovisuais e tecnológicos no trabalho?
 
 ![Experiência de recursos audiovisuais e tecnológicos](g52.png)
+
+Os resultados do Gráfico 30 seguem a tendência positiva, indicando que os beneficiários tem acesso a recursos audiovisuais e tecnológicos em um nível adequado. 
+Outro aspecto avaliado se deu em relação ao relacionamento interpessoal com os colegas de trabalho. Os resultados podem ser visualizados no Gráfico 31.
 
 ### Gráfico 31: Como você avalia o relacionamento interpessoal com os colegas de trabalho?
 
 ![Relacionamento interpessoal](g53.png)
 
+De acordo com os resultados, o relacionamento é saudável ou relativamente saudável. 
+De forma geral, o PPE tem conseguido alocar os beneficiários em locais de trabalho adequados e aptos a promover qualificação profissional compatível com os objetivos previstos na política. O alto nível de satisfação geral é um indicador chave de sucesso do PPE. A experiência positiva no ambiente de trabalho serve de referência para a carreira dos profissionais em formação. Além da satisfação, o indicador de auxílio na progressão de carreira, indica que os beneficiários percebem o aprendizado proporcionado pela mentoria dos pontos focais. 
+Dessa forma,o PPE demonstra ser uma política de emprego, renda e de carreira,com forte viés educativo e de formação cidadã. 
+
+Também foi questionado sobre o nível de exigência no ambiente de trabalho. Os resultados são apresentados no Gráfico 32. 
+
 ### Gráfico 32: Como você avalia o nível de exigência do trabalho?
 
 ![Nível de exigência do trabalho](g54.png)
+
+A maioria dos respondentes julgou que o nível de exigência tem se dado na medida certa, o que indica calibragem adequada e homogeneidade do nível de exigẽncia e promovida pelos pontos focais, sendo um resultado muito positivo para o PPE. 
+Aliado as questões de leitura e estudo,também foiq uestionado se o trabalho auxília para aquisição de cultura. Os resultados podem ser visualizados no Gráfico 33. 
 
 ### Gráfico 33: Você considera que seu trabalho contribui para aquisição de cultura geral?
 
 ![Trabalho contribui para aquisição de cultura](g55.png)
 
+Os respondentes indicaram em maioria que o trabalho contribui para aquisição de  cultura, sendo amplamente para 407 respondentes e parcialmente para 207 respondentes. O resultado preocupante fica nos 59 respondentes que indicaram resultados negativos. Estes resultados se contrapõem aos resultados encontrados em horas de estudo e hábito de leitura, demonstrando que mesmo o trabalho contribuindo para aquisição de cultura, há pouco transbordamento para estudo e leitura. 
+Também foi questionado se o trabalho ajuda o beneficiário a ser umcidadão exemplar. Os resultados podem ser visto no Gráfico 34.
+
 ### Gráfico 34: Você considera que seu trabalho te ajuda a ser um cidadão exemplar?
 
 ![Trabalho ajuda a ser cidadão exemplar](g56.png)
+
+Quase a totalidade dos respondentes indicou que sim, o trabalho ajuda a ser um cidadão exemplar.  Este reconhecimento irrestrito contextualiza o grau de satisfação e outros indicadores positivos decorrentes da interação no ambiente de trabalho. 
+Outro questionamento residiu no grau de contribuição para preparação do exercício profissional. Os resultados podem ser vistos no Gráfico 35.
 
 ### Gráfico 35: Você considera que seu trabalho contribui na preparação para o exercício profissional?
 
 ![Trabalho contribui para exercício profissional](g57.png)
 
+Acompanhando o resultado anterior, o Gráfico 57 mostra que quase a totalidadedos respondentes considera que o trabalho estão auxiliando na preparação para o exercício profissional. De forma geral, a satisfação tem propósito aderente aos objetivos do PPE,de promover qualificação profissional,em conjunto com aformação cidadã e com aquisição de cultura. 
+
 ### Gráfico 36: Como você avalia o desejo de continuar estudando?
 
 ![Desejo de continuar estudando](g58.png)
+
+Gráfico 36 (q58) e 37 (q59): Desejo de continuar estudando e Tentou acesso à universidade?
+
+Descrição: 88,3% reportam um desejo "Muito alto" (367) ou "Alto" (251) de continuar estudando (Q58). Além disso, 62% (428) já tentaram acesso a uma universidade (Q59).
+
+Análise e Proposição: O PPE atua como um financiador e incentivador da educação continuada. A experiência prática e a renda estabilizada não encerram o ciclo educacional; pelo contrário, fornecem os meios e a motivação para que os técnicos busquem o ensino superior. O programa é um trampolim para a universidade.
+
+Gráfico 39 (q61) e 40 (q62): Autoconfiança e Expectativa
+
+Descrição: Os dados revelam uma profunda transformação psicológica.
+
+Antes (Q40): A maioria (351) acreditava que conseguiria um emprego formal "com dificuldade"; 120 "talvez" e 57 "não". Apenas 182 (26%) tinham certeza.
+
+Depois (Q39): 93,7% sentem-se "Mais confiante e melhor preparado" (495) ou "Mais confiante" (161).
+
+Análise e Proposição: O PPE quebra a barreira da insegurança. A política pública provê não apenas a vaga, mas a validação. Ao final da experiência, o beneficiário sabe que é capaz, qualificado e desejado pelo mercado. Este ganho de capital psicológico e autoconfiança é um dos resultados mais duradouros e transformadores do programa.
+
+Tabela 16 (q63) e 17 (q64): Objetivo Profissional
+
+Descrição: Antes do PPE, o maior objetivo era "Entrar no mercado de trabalho" (49,4%) ou "Melhorar de emprego" (35,1%) (Q16). Após o PPE (Q17), 64,8% (447) sentem que "alcançaram e almejam um objetivo maior", e 14,6% (101) "alcançaram e estão satisfeitos".
+
+Análise e Proposição: O programa é um realizador de objetivos. Para 79,4% dos beneficiários (soma), o objetivo profissional inicial foi atingido. Mais importante, para a maioria (64,8%), o programa elevou suas aspirações ("almejo objetivo maior"), criando um ciclo virtuoso de ambição e qualificação.
+
+Gráfico 41 (q65): Acesso a bens
+
+Descrição: A nuvem de palavras sobre bens adquiridos é dominada por "notebook", "tablet", "máquina de lavar", "geladeira", "smartphone", "carro", "moto" e "roupas".
+
+Análise e Proposição: Este é o indicador da materialização do impacto da renda. A renda do PPE está sendo convertida em bens que melhoram a infraestrutura doméstica (eletrodomésticos) e promovem a inclusão digital (notebook, tablet, smartphone), uma ferramenta essencial para a continuidade dos estudos (Q58) e para a competitividade no mercado de trabalho moderno.
+
+As questões seguintes, ainda no mesmo eixo do trabalho, busca apreender as ambições e condições facilitadoras para avançar nos estudos e na qualificação profissional. O Gráfico 37 sumariza a questão indica se o beneficiário já tentou acesso a universidade.
 
 ### Gráfico 37: Tentou acesso em alguma universidade?
 
@@ -464,6 +638,9 @@ source("q59.R", local = knitr::knit_global())
 g59
 ```
 
+De acordo com o Gráfico 37, 428 respondentes indicaram que já tentaram ingressar em um curso superior. Ainda há 262 respondentes que não tentaram. Pela perspectiva dos objetivos do PPE, espera-se que o número de beneficiários que não tentaram a universidade diminua. 
+Também foi questionado sobre trabalhos anteriores, mesmo que informalmente. Os resultados estão presente sno Gráfico 38. 
+
 ### Gráfico 38: Antes do PPE, você já havia trabalhado, mesmo que informalmente?
 
 ```{r}
@@ -479,13 +656,22 @@ source("q60.R", local = knitr::knit_global())
 g60
 ```
 
+Os resultados demonstram que havia muito trabalho informal presente na vida dos beneficiários (573). A diminuição do trabalho informal, promovendo a migração para o trabalho formal é um dos indicadores de sucesso do PPE. Este é um indicador de curto prazo, assim como a mobilidade de renda familia. 
+Sobre asaspirações com o mercado de trabalho, foi questionado como o beneficiário se sente em relação ao mercado de trabalho, comparado a antes do PPE. Os resultados podem ser vistos no Gráfico 39. 
+
 ### Gráfico 39: Como você se sente em relação ao mercado de trabalho comparado a antes do PPE?
 
 ![Auto-confiança e preparo](g61.png)
 
+Os resultados demonstram que o PPE promoveu uma mudança de expectativa com o mercado de trabalho. Apenas 38 repsondentes indicaram que se sentem menos preparados. Para este público, cabe  uma avaliação individual das condições de trabalho. De maneira geral, o PPE promove auto-confiança com o mercado de trabalho. 
+Ainda sobre expectativas,também foiq uestionado se antes do PPE, o beneficiário acreditava que teria um emprego formal. Os resultados estão presentes no Gráfico 40. 
+
 ### Gráfico 40: Você acreditava que conseguiria um emprego formal antes do PPE?
 
 ![Expectativa com emprego formal](g62.png)
+
+A maioria dos respondentes (351) indicou que tinha esperanças de conseguir um emprego formal, mas com dificuldade. Para 177 beneficiários,a expectativa era baixa ou nenhuma. Estes resultados indicam que a superação de expectativas foi alcançada através do PPE. 
+Aliado as expectativasjá avaliadas, também foi questionado qualera o maior objetivo profissionaldos respondentes. Os resultados foram sumarizados na Tabela 16. 
 
 ### Tabela 16: Antes do PPE, qual era seu maior objetivo profissional?
 
@@ -502,6 +688,9 @@ source("q63.R", local = knitr::knit_global())
 g63
 ```
 
+A maior parte dos respondentes tinha a ambição de apenas entrar no mercado de trabalho (49,4%), seguido demelhorar de emprego (35,1%). As expectativas de continuar estudando ou de empreender tem representatividade baixa entre os respondentes. Estes resultados denotam objetivos de curto prazo. A baixa incidência da categoria "empreender" demonstra baixas expectativas de mobilidade social. Apenas 14 respondentes indicaram não ter objetivos definidos. 
+Comparado a este resultado de antes do PPE,também foi questionado como eles se sentem hoje sobre o objetivo profissional. Os resultados podem ser visualizados na Tabela 17. 
+
 ### Tabela 17: Considerando o objetivo profissional de antes do PPE, como se sente agora?
 
 ```{r}
@@ -516,6 +705,10 @@ g63
 source("q64.R", local = knitr::knit_global())
 g64
 ```
+
+Os resultados são positivos, indicando um clara ascensão de expectativas profissionais. A Tabela 17 mostra que para 447 beneficiários, o objetivo profisisonal foi alcançado e agora almejam objetivos maiores. Para 113, o objetivo está próximo de ser alcançado. Para 101, o objetivo já foi alcançado e estão satisfeitos. 17 respondentes afirmaram que não tinham objetivos e agora tem. Apenas 2 respondentes indicaram que não tinham objetivo e continuam sem ter. A categoria "Não alcancei enão sinto que estou mais próximo" não foi marcada por nenhum respondente. 
+
+A última questão avaliou melhora material de curto prazo, questionando sobre o acesso a bens a partir da entrada no PPE. Os resultados são apresentados sob forma de nuvem de palavras, indicando os itens mais lembrados. 
 
 ### Gráfico 41: Sua família tem acesso a bens que antes do PPE não possuíam ou teve condições de comprar mais itens?
 
@@ -532,7 +725,107 @@ source("q65.R", local = knitr::knit_global())
 g65
 ```
 
+A maioria dos respondentes (acima de 90%) indicaram pelo menos um item que conseguiu adquirir após a entrada no PPE. Os respondentes indicaram com maior frequência acesso a bens de casa como cama,sofá, máquina de lavar e geladeira, automoveis como carro e  moto, equipamentos de informática como smartphone, notebook e tablet. Com frequẽncia baixa, mas ainda relevante, os respondentes também lembraram de imóveis, focado em entrada da casa para financiamento ou reforma da casa. 
 
+4. Conclusões Gerais e Proposições
+
+A partir da perspectiva dos beneficiários, é possível concluir que o PPE tem demonstrado capacidade inequivoca de qualificação profissional, constituindo uma política que transcende a geração de emprego e renda, consolidando-se como uma política de impacto social, promovendo mobilidade social e equidade social. Os públicos atendidos constituem majoritariamente mulheres pretas e pardas,  com renda familiar de até 3 salários mínimos. A qualidade da inserção profissional é demonstrada em vários aspectos,como na satisfação geral dos beneficiários, os indicadores positivos de avaliação do ambiente de trabalho, a melhoria substancial de expectativas profissionais e a percepção clara de aprendizado, elevando as aspirações profisisonais. 
+Como implicações práticas  para a equipe técnica do PPE, o sucesso da política sugere que a expansão é válida e necessária, necessitando de aprimoramento da infraestrutura de monitoramento e suporte de pessoal, sem queda de qualidade. Também é sugerido aprimoramento para monitoramento da política. Os questionários de avaliação devem ser hospedadosem plataformas mais seguras e que tenham amis recursos para garantir o máximo de respostas válidas. Como por exemplo,adotar listas padronizadas de municípios. 
+o PPE também pode clarificar o foco estratégico. A presença de aproximdamente 25% de beneficiários acima de 35 anos, indica que o PPE devese preparar para requalificar estes beneficiários, sendo uma estratégia distinta a promoção do primeiro emprego. Recomenda-se realizar uma análise aprofundada deste recorte etário, para criar e implementar trilhas de desenvolvimento distintas. Adicionalmente, promover treinamento adequado para os pontos focais que acompanham estes beneficiários. 
+Outro ponto de foco estratégico reside na abrangência geográfica. O PPE está bem concentrado na capital bahiana. Apesar da presença em mais de 60 municípios, esta presença é pequena e demonstra alta concentração em Salvador e arredores. É importante avaliar se o PPE pretende continuar tendo essa concentração ou se pretende espalhar a disposição geográfica. 
+
+Como o trabalho informal era bem presente antes do PPE, recomenda-se também revisar as perguntas sobre trabalho prévio, buscando especificar os trabalhos informais e dixar mais clara a pergunta sobre trabalho formal. Dessa forma,a mensuração será mais precisa sobre estes aspectos,permitindoa valiar com clarezaa transição do trabalho informal para o formal. 
+
+A próxima fronteira de aprimoramento reside em mudanças na forma de medição, que permita investigar o impacto causal do PPE sob a perspectiva da avaliação de impacto de políticas públicas. São sugeridas duas ações para as próximas avaliações inerentes a Ação 8 do PPE. 
+
+- A construção de um contrafactual: Em linhas gerais, para avaliar a causalidade do impacto causado nos beneficiários, é necessário comparar com o que teria acontecido a eles sem o PPE. Desas forma, é possível ter uma evidência mais robusta do impacto na renda, na qualificação profissionale naauto-confiança para ingressar no mercado de trabalho. O que teria acontecido coma renda familiar se o beneficiário não tivesse participado do PPE, e a auto-confiança e amadurecimento para ingressar no mercado de trabalho, seria a mesma sem o PPE, seria fruto de um aquecimento da economia com efeitos na empregabilidade formal? Essas questões podem ser respondidas se houver um contrafactual. 
+Para tanto, o PPE pode a partir do corte estabelecido para participação no programa, aplicar o questionário para aqueles que tem condições de participar do PPE,mas não foram selecionados. Assim, é possível comparar os resultados para os beneficiários (grupo de tratamento) e os aptos a participar,mas que ainda não foram selecionados (controle). Portanto, basta estender a aplicação do questionário dos beneficiários para os que ficam na reserva. Com aplicações periódicas, é possível construir um contrafactual sólido e acompanhar a causalidade ao longo do tempo (de forma longitudinal). 
+
+- Avaliar a descontinuidade: a segunda proposta é avaliar o ponto de corte para entrada no PPE. Se há um ponto de corte objetivo, que determina a convocação dos beneficiários, é possível comparar beneficiários que estão logoacima do ponto de corte e os que estão logo abaixo. Estes grupos são bem próximos em perfil, desempenho no ensino médio, dentre outras habilidades. A diferença entre ser selecionado e não ser é o ponto de corte. O acompanhamento desses indivíduos, por meio do questionário, permite comparar renda,  empregabilidade e auto-confiança. 
+
+Por fim, são sugeridos nos Apêndices C e D versões do questionário para ser aplicado antes e depois do PPE. COnsiste em ajustes de redação que não alteram o sentido,mas são adaptados para o momento. O questionário de antes da entrada pode ser aplicado para quem estiver no grupo de controle. 
+
+5. Recomendações para Aprofundamento Analítico (Análise Inferencial)
+
+A análise descritiva apresentada fornece um panorama robusto do impacto do PPE. Para identificar relações de causalidade, testar hipóteses e construir modelos preditivos, recomenda-se uma segunda fase de análises estatísticas inferenciais e multivariadas.
+
+5.1. Testes de Associação (Tabelas de Contingência)
+
+Utilizando o Teste Qui-Quadrado de Independência (χ²), é possível verificar se existe associação estatisticamente significativa entre variáveis categóricas.
+
+Hipótese 1: Equidade Racial no Acesso a Oportunidades.
+
+Cruzamento: Raça/Cor (q36) vs. Formação Técnica (q31 - agrupada em Saúde, Gestão, TI, Outros).
+
+Pergunta: A distribuição de beneficiários negros (pretos e pardos) é proporcional em todas as áreas técnicas, ou há uma concentração em áreas específicas (ex: saúde) em detrimento de outras (ex: TI)?
+
+Hipótese 2: Impacto da Idade na Percepção de Carreira.
+
+Cruzamento: Faixa Etária (q23) vs. Auxílio para Progredir na Carreira (q51).
+
+Pergunta: Beneficiários mais velhos (35+) percebem o mesmo nível de incentivo à progressão de carreira que os mais novos (16-21)?
+
+5.2. Testes de Comparação de Grupos (Inferência Não Paramétrica)
+
+Dado que a maioria das variáveis de percepção (ex: satisfação, aderência) são ordinais, os testes não paramétricos são os mais indicados, pois não exigem a suposição de normalidade dos dados.
+
+Teste de Mann-Whitney U (Comparação de 2 grupos):
+
+Cruzamento: Gênero (q24 - Feminino/Masculino) vs. Nível de Satisfação Geral (q50 - ordinal).
+
+Pergunta: Existe diferença estatisticamente significativa no nível de satisfação reportado por homens e mulheres?
+
+Teste de Kruskal-Wallis (Comparação de 3+ grupos, análogo à ANOVA):
+
+Cruzamento: Faixa Etária (q23 - 4 grupos) vs. Percepção de Aderência Profissional (q57 - ordinal).
+
+Pergunta: A percepção de que o trabalho contribui para a profissão difere significativamente entre as faixas etárias?
+
+Cruzamento 2: Raça/Cor (q36 - 3+ grupos) vs. Nível de Satisfação Geral (q50 - ordinal).
+
+Pergunta: O nível de satisfação com o programa é o mesmo entre beneficiários brancos, pretos e pardos?
+
+5.3. Análises de Correlação
+
+Para medir a força e a direção da relação entre duas variáveis ordinais, utiliza-se o Coeficiente de Correlação de Spearman (ρ).
+
+Hipótese 1: Aderência como Fator de Satisfação.
+
+Correlação: Percepção de Aderência Profissional (q57) vs. Satisfação Geral (q50).
+
+Inferência: Espera-se uma correlação positiva forte. Isso quantificaria a importância da política de alocação (vaga certa para a formação certa) na satisfação geral do beneficiário.
+
+Hipótese 2: Impacto do Ambiente na Satisfação.
+
+Correlação: Relacionamento Interpessoal (q53) vs. Satisfação Geral (q50).
+
+Inferência: Permite medir se o clima organizacional é um preditor tão ou mais forte para a satisfação do que a própria tarefa (q57).
+
+Hipótese 3: Autoconfiança e Educação.
+
+Correlação: Autoconfiança e Preparo (q61) vs. Desejo de Continuar Estudando (q58).
+
+Inferência: O programa gera um ciclo virtuoso? Sentir-se mais preparado aumenta o desejo de buscar o ensino superior?
+
+5.4. Modelagem Preditiva (Regressão Logística)
+
+Para entender quais fatores predizem um resultado de sucesso, pode-se utilizar a regressão logística (binária ou ordinal), que permite modelar uma variável categórica (ex: "Muito Satisfeito") a partir de múltiplos preditores (demográficos e de percepção).
+
+Modelo 1: Preditores da Satisfação (Regressão Logística Ordinal).
+
+Variável Dependente (Y): Satisfação Geral (q50) (escala de 4 pontos).
+
+Variáveis Independentes (X): Aderência (q57), Relacionamento (q53), Condições Físicas (q49), Auxílio Carreira (q51), Gênero (q24), Faixa Etária (q23), Raça/Cor (q36).
+
+Resultado: O modelo identificaria quais são os principais impulsionadores da satisfação. A gestão do PPE poderia focar seus esforços em otimizar as variáveis de maior impacto (ex: se a "Aderência" for o preditor mais forte, reforçar ainda mais a alocação).
+
+Modelo 2: Preditores da Transição de Renda (Regressão Logística Binária).
+
+Variável Dependente (Y): Aumento de Renda Familiar (Criar variável binária "Sim/Não" a partir de Q23 ou da comparação Q40 vs Q43).
+
+Variáveis Independentes (X): Formação Técnica (q31), Gênero (q24), Raça/Cor (q36), Escolaridade da Mãe (q46).
+
+Resultado: Este modelo seria crucial para testar a hipótese de equidade no impacto econômico. Ele responderia: mantendo os outros fatores constantes, um beneficiário negro tem a mesma probabilidade de aumentar a renda familiar que um beneficiário branco? Uma mulher tem a mesma probabilidade que um homem?
 
 
 
